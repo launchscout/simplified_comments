@@ -50,7 +50,7 @@ defmodule SimpifiedComments.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:live_state, "~> 0.7", path: "../live_state"},
+      {:live_state, "~> 0.7.1"},
       {:cors_plug, ">= 0.0.0"}
     ]
   end
