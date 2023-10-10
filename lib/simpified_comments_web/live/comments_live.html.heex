@@ -1,0 +1,18 @@
+<dl>
+  <%= for comment <- @comments do %>
+    <dt><%= comment["author"] %></dt>
+    <dd><%= comment["text"] %></dd>
+  <% end %>
+</dl>
+<form phx-submit="add_comment">
+  <div>
+    <label>Author</label>
+    <input name="author" />
+  </div>
+  <div>
+    <label>Comment</label>
+    <input name="text" />
+  </div>
+  <button>Add comment</button>
+</form>
+

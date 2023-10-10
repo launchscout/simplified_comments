@@ -19,6 +19,9 @@ defmodule SimpifiedCommentsWeb.Router do
 
     get "/", PageController, :home
     get "/comments", PageController, :comments
+    get "/todos", PageController, :todo_list
+
+    live "/live_comments", CommentsLive
   end
 
   # Other scopes may use custom stacks.

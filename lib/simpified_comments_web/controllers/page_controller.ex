@@ -10,4 +10,9 @@ defmodule SimpifiedCommentsWeb.PageController do
   def comments(conn, _params) do
     render(conn, :comments, layout: false)
   end
+
+  def todo_list(conn, _params) do
+    render(conn, :todo_list, layout: false)
+  end
+
 end

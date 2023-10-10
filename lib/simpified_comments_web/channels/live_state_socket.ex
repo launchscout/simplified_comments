@@ -9,6 +9,7 @@ defmodule SimpifiedCommentsWeb.LiveStateSocket do
   ## Channels
 
   channel "comments:*", SimpifiedCommentsWeb.CommentsChannel
+  channel "todo_list", SimpifiedCommentsWeb.TodoListChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
