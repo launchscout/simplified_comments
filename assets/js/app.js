@@ -42,4 +42,5 @@ window.liveSocket = liveSocket
 import './comments-section';
 import './todo-list';
 import './todo-form';
+import './lets-chat';
 
