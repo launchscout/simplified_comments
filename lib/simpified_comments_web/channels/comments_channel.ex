@@ -11,7 +11,7 @@ defmodule SimpifiedCommentsWeb.CommentsChannel do
   end
 
   @impl true
-  def handle_event("add-comment", comment, state) do
+  def handle_event("add-comment", %{"comment" => comment}, state) do
     PubSub.broadcast(SimpifiedComments.PubSub, "comments", {:add_comment, comment})
     {:noreply, state}
   end

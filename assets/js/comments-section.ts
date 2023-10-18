@@ -2,55 +2,40 @@ import { LitElement, html } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
 import { liveState, liveStateConfig, liveStateProperty } from 'phx-live-state';
 
-type Comment = {
-  author: string;
-  text: string;
-}
 
 @customElement('comments-section')
 @liveState({
   topic: 'comments:all',
+  url: 'ws://localhost:4000/live_state',
   events: {send: ['add-comment']}
 })
 export class CommentsSectionElement extends LitElement {
 
-  @liveStateConfig('url')
-  @property()
-  url: string = '';
-
   @state()
   @liveStateProperty()
-  comments: Comment[] = [];
-
-  @query('form')
-  form: HTMLFormElement;
+  comments: string[] = [];
 
   render() {
     return html`
-      <dl>
-        ${this.comments.map((comment) => html`
-          <dt>${comment.author}</dt>
-          <dd>${comment.text}</dd>
-        `)}
-      </dl>
+      <ul>
+        ${this.comments.map((comment) => html`<li>${comment}`)}
+      </ul>
       <form @submit=${this.addComment}>
         <div>
-          <label>Author</label>
-          <input name="author" />
-        </div>
-        <div>
           <label>Comment</label>
-          <input name="text" />
+          <input name="comment" />
         </div>
         <button>Add comment</button>
       </form>
     `;
   }
 
+  @query('input[name="comment"]')
+  commentInput: HTMLInputElement;
+
   addComment(e: SubmitEvent) {
     e.preventDefault();
-    const comment = Object.fromEntries(new FormData(this.form));
-    this.dispatchEvent(new CustomEvent('add-comment', {detail: comment}));
-    this.form!.reset();
+    this.dispatchEvent(new CustomEvent('add-comment', {detail: {comment: this.commentInput.value}}));
+    this.commentInput!.value = '';
   }
 }
