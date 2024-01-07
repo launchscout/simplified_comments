@@ -9,6 +9,7 @@ defmodule SimpifiedCommentsWeb.LiveStateSocket do
   ## Channels
 
   channel "comments:*", SimpifiedCommentsWeb.CommentsChannel
+  channel "wasm_comments:*", SimpifiedCommentsWeb.WasmCommentsChannel
   channel "todo_list", SimpifiedCommentsWeb.TodoListChannel
   channel "chat:*", SimpifiedCommentsWeb.ChatChannel
 

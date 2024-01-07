@@ -7,7 +7,7 @@ defmodule SimpifiedCommentsWeb.CommentsChannel do
   @impl true
   def init(_channel, _params, _socket) do
     PubSub.subscribe(SimpifiedComments.PubSub, "comments")
-    {:ok, %{comments: []}}
+    {:ok, %{comments: ["First comment"]}}
   end
 
   @impl true

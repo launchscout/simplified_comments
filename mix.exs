@@ -51,7 +51,8 @@ defmodule SimpifiedComments.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:live_state, "~> 0.7.1"},
-      {:cors_plug, ">= 0.0.0"}
+      {:cors_plug, ">= 0.0.0"},
+      {:extism, "~> 1.0.0-rc2"}
     ]
   end
 
